@@ -1,6 +1,7 @@
 angular.module('phonecat', [
   'phonecat.phones.list',
   'phonecat.phones.detail',
+  'phonecat.phones.detail.edit',
   'phonecat.checkmark.filter'
 ]).config(['$routeProvider', function($routeProvider){
   $routeProvider.when('/phones', {
@@ -9,7 +10,14 @@ angular.module('phonecat', [
   }).when('/phones/:phoneId', {
     templateUrl: 'phones/detail',
     controller: 'PhoneDetailController'
-  }).otherwise({
+  })
+
+  .when('/phones/:phoneId/edit', {
+    templateUrl: 'phones/detail/edit',
+    controller: 'PhoneEditController'
+  })
+
+  .otherwise({
     redirectTo: '/phones'
   });
 }]);
