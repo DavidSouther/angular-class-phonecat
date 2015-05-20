@@ -1,4 +1,5 @@
 angular.module('phonecat', [
+  'phonecat.authentication',
   'phonecat.phones.list',
   'phonecat.phones.detail',
   'phonecat.phones.detail.edit',
@@ -11,10 +12,14 @@ angular.module('phonecat', [
     templateUrl: 'phones/detail',
     controller: 'PhoneDetailController'
   })
-
   .when('/phones/:phoneId/edit', {
     templateUrl: 'phones/detail/edit',
     controller: 'PhoneEditController'
+  })
+
+  .when('/login', {
+    templateUrl: 'authentication',
+    controller: 'AuthenticationController'
   })
 
   .otherwise({

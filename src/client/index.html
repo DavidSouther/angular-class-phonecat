@@ -12,6 +12,9 @@
     <script src="vendors.js"></script>
   </head>
   <body>
+    <div ng-controller="LogoutController">
+      <a ng-click="logout()" href="#">Logout</a>
+    </div>
     <div class="view-container">
       <ng-view class="view-frame"></ng-view>
     </div>
