@@ -16,5 +16,9 @@ angular.module('phonecat.authentication.controller', [
   $scope.logout = function(){
     AuthenticationService.logout();
   };
+
+  $scope.isLoggedIn = function(){
+    return AuthenticationService.isLoggedIn();
+  };
 })
 ;
