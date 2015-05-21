@@ -4,11 +4,15 @@ angular.module('phonecat.authentication.controller', [
   function($scope, AuthenticationService){
     $scope.username = "";
     $scope.password = "";
+    $scope.errorLoggingIn = false;
 
     $scope.login = function(){
+      $scope.errorLoggingIn = false;
       AuthenticationService.login(
         $scope.username, $scope.password
-      );
+      ).error(function(){
+        $scope.errorLoggingIn = true;
+      });
     };
   }
 )
