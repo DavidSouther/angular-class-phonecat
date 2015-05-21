@@ -1,10 +1,22 @@
-<form>
+<script type="text/ng-template" id="login-error-messages">
+  <div ng-message="required">This field is required.</div>
+  <div ng-message="minlength">This field does not have the minimum number of characters.</div>
+  <div ng-message="maxlength">This field has more than the maximum number of characters.</div>
+</script>
+
+<div ng-init="errorLoggingIn = false"></div>
+<form name="loginForm">
   <label>Username:
-    <input ng-model="username" class="form-control" />
+    <input ng-model="username" name="username" required ng-minlength="2" ng-maxlength="5" class="form-control" />
   </label>
+  <div ng-messages="loginForm.username.$error" ng-messages-include="login-error-messages" role="alert" class="bg-warn">
+  </div>
   <label>Password:
-    <input ng-model="password" type="password" class="form-control" />
+    <input ng-model="password" name="password" type="password" require ng-minlength="8" password-validate class="form-control" />
   </label>
+  <div ng-messages="loginForm.password.$error" ng-messages-include="login-error-messages" role="alert" class="bg-warn">
+    <div ng-message="passwordValid">The password is incorrect.</div>
+  </div>
   <button type="submit" class="btn btn-default" ng-click="login()">Login</button>
   <p ng-show="errorLoggingIn" class="bg-danger">There was an error logging in.</p>
 </form>

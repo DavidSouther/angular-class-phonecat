@@ -1,6 +1,6 @@
 angular.module('phonecat.authentication.service', [
   'ngCookies'
-]).factory('AuthenticationService', function($http, $location, $cookies){
+]).factory('AuthenticationService', function($http, $location, $cookieStore){
   return {
     login: function(un, pw){
       console.log('Authenticating as %s', un);
@@ -15,7 +15,7 @@ angular.module('phonecat.authentication.service', [
       });
     },
     isLoggedIn: function(){
-      return $cookies['li'] === '1';
+      return $cookies.get('li') === '1';
     }
   }
 });
