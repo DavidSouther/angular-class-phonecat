@@ -21,10 +21,17 @@
     }
   },
   "tls": false,
-  "routing": [
-    "./src/server/allow.coffee",
-    "./src/server/**/*route.{coffee,js}"
-  ],
+  "server": {
+    "root": "./src/server",
+    "extensions": [
+      "js",
+      "coffee"
+    ],
+    "routing": [
+      "allow",
+      "**/*route"
+    ]
+  },
   "static": {
     "phones": "src/phones/",
     "img": "src/img/"

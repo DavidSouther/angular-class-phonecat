@@ -5,12 +5,14 @@
     "test": "./node_modules/.bin/grunt",
     "features": "./node_modules/.bin/grunt features",
     "watch": "grunt watcher",
-    "rename": "echo 'Coming Soon!'"
+    "rename": "echo 'Coming Soon!'",
+    "supervise": "node ./supervise.js"
   },
   "dependencies": {
     "debug": "^2.2.0",
     "mongodb": "^2.0.33",
-    "rupert": "^0.3.1",
+    "nodemon": "^1.3.7",
+    "rupert": "^0.3.4",
     "rupert-plugin-angular": "^0.1.1",
     "rupert-plugin-bootstrap": "^0.1.1"
   },
