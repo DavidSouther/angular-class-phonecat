@@ -15,7 +15,7 @@ angular.module('phonecat.authentication.service', [
       });
     },
     isLoggedIn: function(){
-      return $cookies.get('li') === '1';
+      return $cookieStore.get('li') === 1;
     }
   }
 });
